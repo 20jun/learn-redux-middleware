@@ -12,6 +12,8 @@ import logger from "redux-logger";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import { thunk } from "redux-thunk";
 
+import { BrowserRouter } from "react-router-dom";
+
 const store = createStore(
   rootReducer,
   // logger 를 사용하는 경우, logger가 가장 마지막에 와야합니다.
@@ -21,9 +23,11 @@ const store = createStore(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
